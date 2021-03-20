@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Quiz - test your knowledge!</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Code Quiz</h1>
+        <button id = "start">START</button>
+    </header>
+    <main>
+        <h2>Answer each question correctly or time will be deducted</h2>
+        <div id = "question"></div>
+        <div id = "choices">
+            <p><button id = "choice-1"></button></p>
+            <p><button id = "choice-2"></button></p>
+            <p><button id = "choice-3"></button></p>
+            <p><button id = "choice-4"></button></p>
+        </div>
+        <div id = "correct-answer"></div>
+    </main>    
+    <aside id = "scoreboard">
+        <div id = "deducter">
+            <h3>Time Deducted:
+                <span id = "time-deducted">0</span>
+            </h3>
+        </div>
+        <div id = "timer">
+            <h3>Time Remaining:
+                <span id = "time-remaining">60</span>
+            </h3>
+        </div>
+    </aside>
+    
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
