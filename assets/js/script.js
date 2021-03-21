@@ -75,19 +75,23 @@ function loadQuestion () {
     document.getElementById("choice-2").textContent = currentQuestion.choices[1];
     document.getElementById("choice-3").textContent = currentQuestion.choices[2];
     document.getElementById("choice-4").textContent = currentQuestion.choices[3];
+    
     console.log(currentQuestion.answer);
 }
 
-document.addEventListener("click", answerCheck)
+document.getElementById("choices").addEventListener("click", answerCheck)
 
 function answerCheck(event) {
     event.preventDefault();
-    answerCorrect = quizQuestions[questionIndex].answer
-    if (currentQuestion.answer === answerCorrect) {
+    var answerCorrect = quizQuestions[questionIndex].answer;
+    console.log(answerCorrect);
+    var answerUser = event.target.textContent;
+    console.log(answerUser);
+    if (answerUser === answerCorrect) {
         document.getElementById("answer-check").textContent = "Correct";
         questionIndex++;
         loadQuestion();
-    } else if (currentQuestion.answer !== answerCorrect) {
+    } else if (answerUser !== answerCorrect) {
         document.getElementById("answer-check").textContent = "Incorrect";
         timer = timer - 10;
         questionIndex++
