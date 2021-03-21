@@ -33,8 +33,7 @@ var quizQuestions = [
 
 // other variables
 
-var totalQuestions = quizQuestions.length;
-var currentQuestions = 0;
+var questionIndex = 0;
 
 var timer = 60;
 var deducter = 0;
@@ -66,28 +65,23 @@ function startTimer () {
 }
 
 function loadQuestion () {
-    if (currentQuestions === totalQuestions) {
+    if (questionIndex === quizQuestions.length) {
         return finalScore ();
     }
 
-    for (var i =0; i < totalQuestions; i++) {
-    var currentQuestion = quizQuestions[currentQuestions];
-    document.getElementById("question").innerHTML = currentQuestion.question[0];
-    document.getElementById("choice-1").innerHTML = currentQuestion.choices[0];
-    document.getElementById("choice-2").innerHTML = currentQuestion.choices[1];
-    document.getElementById("choice-3").innerHTML = currentQuestion.choices[2];
-    document.getElementById("choice-4").innerHTML = currentQuestion.choices[3];
-
-        
-    console.log(currentQuestion);
-    console.log(currentQuestion.choices[2]);
-    }
-
-
-
+    var currentQuestion = quizQuestions[questionIndex];
+    document.getElementById("question").textContent = currentQuestion.question;
+    document.getElementById("choice-1").textContent = currentQuestion.choices[0];
+    document.getElementById("choice-2").textContent = currentQuestion.choices[1];
+    document.getElementById("choice-3").textContent = currentQuestion.choices[2];
+    document.getElementById("choice-4").textContent = currentQuestion.choices[3];
 }
 
+document.addEventListener("click", answerCheck)
 
+function answerCheck(event) {
+    event.preventDefault();
+}
 
 function finalScore () {
 
