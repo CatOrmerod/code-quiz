@@ -34,6 +34,7 @@ var quizQuestions = [
 // other variables
 
 var questionIndex = 0;
+var currentQuestion = quizQuestions[questionIndex];
 
 var timer = 60;
 var deducter = 0;
@@ -69,20 +70,28 @@ function loadQuestion () {
         return finalScore ();
     }
 
-    var currentQuestion = quizQuestions[questionIndex];
     document.getElementById("question").textContent = currentQuestion.question;
     document.getElementById("choice-1").textContent = currentQuestion.choices[0];
     document.getElementById("choice-2").textContent = currentQuestion.choices[1];
     document.getElementById("choice-3").textContent = currentQuestion.choices[2];
     document.getElementById("choice-4").textContent = currentQuestion.choices[3];
+    console.log(currentQuestion.answer);
 }
 
 document.addEventListener("click", answerCheck)
 
 function answerCheck(event) {
     event.preventDefault();
-}
-
-function finalScore () {
-
+    answerCorrect = quizQuestions[questionIndex].answer
+    if (currentQuestion.answer === answerCorrect) {
+        document.getElementById("answer-check").textContent = "Correct";
+        questionIndex++;
+        loadQuestion();
+    } else if (currentQuestion.answer !== answerCorrect) {
+        document.getElementById("answer-check").textContent = "Incorrect";
+        timer = timer - 10;
+        questionIndex++
+        loadQuestion();
+    }
+    
 }
