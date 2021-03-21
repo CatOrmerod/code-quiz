@@ -16,10 +16,10 @@
         <h2>Answer each question correctly or time will be deducted</h2>
         <div id = "question"></div>
         <div id = "choices">
-            <p><button id = "choice-1"></button></p>
-            <p><button id = "choice-2"></button></p>
-            <p><button id = "choice-3"></button></p>
-            <p><button id = "choice-4"></button></p>
+            <button><span id = "choice-1">A</span></button>
+            <button><span id = "choice-2">B</span></button>
+            <button><span id = "choice-3">C</span></button>
+            <button><span id = "choice-4">D</span></button>
         </div>
         <div id = "correct-answer"></div>
     </main>    
@@ -27,6 +27,11 @@
         <div id = "deducter">
             <h3>Time Deducted:
                 <span id = "time-deducted">0</span>
+            </h3>
+        </div>
+        <div id = "wrong">
+            <h3>Questions Wrong:
+                <span id = "losses">0</span>
             </h3>
         </div>
         <div id = "timer">
