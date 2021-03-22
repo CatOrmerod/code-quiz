@@ -12,7 +12,7 @@
         <h1>Code Quiz</h1>
         <button id = "start">START</button>
     </header>
-    <main>
+    <main id = "quiz-questions">
         <h2>Answer each question correctly or time will be deducted</h2>
         <div id = "question"></div>
         <div id = "choices">
@@ -47,6 +47,13 @@
             </h3>
         </div>
     </aside>
+    <div id = "highscores">
+        <textarea id="username" placeholder="Your Initials here" ></textarea>
+        <p>Your Final Score: 
+            <span id = "final-score">0</span>
+        </p>
+        <button id = "save-score">SAVE SCORE</button>
+    </div>
     
     <script src="assets/js/script.js"></script>
 </body>

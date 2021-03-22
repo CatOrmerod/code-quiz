@@ -93,19 +93,31 @@ function answerCheck(event) {
         questionIndex++;
         wins++
         loadQuestion(questionIndex);
-        console.log(currentQuestion);
     } else if (answerUser !== answerCorrect) {
         document.getElementById("answer-check").textContent = "Incorrect, the correct answer is " + answerCorrect;
         timer = timer - 10;
         questionIndex++
         loadQuestion(questionIndex);
-        console.log(currentQuestion);
     }
     
 }
- function finalScore() {
+
+function finalScore() {
     if(timer > 0);
     var score = timer;
     clearInterval(interval);
     document.getElementById("answer-check").textContent = "Your final score is: " + score;
- }
+    saveScore();
+}
+ 
+function saveScore() {
+    userNameInput = document.getElementById("username").textContent;
+    var newScore = {
+        name: userNameInput,
+        score: timer
+    };
+    var highScores = JSON.parse(localStorage.getItem("highScores") || "[]");
+    highScores.push(newScore);
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+    console.log(highScores)
+}
