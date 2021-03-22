@@ -40,6 +40,7 @@ var timer = 60;
 var deducter = 0;
 var interval
 var losses = 0;
+var wins = 0;
 
 document.getElementById("start").addEventListener("click", startGame);
 
@@ -88,14 +89,17 @@ function answerCheck(event) {
     var answerUser = event.target.textContent;
     console.log(answerUser);
     if (answerUser === answerCorrect) {
-        document.getElementById("answer-check").textContent = "Correct";
+        document.getElementById("answer-check").textContent = "Correct!  Well Done.";
         questionIndex++;
-        loadQuestion();
+        wins++
+        loadQuestion(questionIndex);
+        console.log(currentQuestion);
     } else if (answerUser !== answerCorrect) {
-        document.getElementById("answer-check").textContent = "Incorrect";
+        document.getElementById("answer-check").textContent = "Incorrect, the correct answer is " + answerCorrect;
         timer = timer - 10;
         questionIndex++
-        loadQuestion();
+        loadQuestion(questionIndex);
+        console.log(currentQuestion);
     }
     
 }
