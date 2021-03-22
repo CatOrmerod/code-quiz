@@ -103,3 +103,9 @@ function answerCheck(event) {
     }
     
 }
+ function finalScore() {
+    if(timer > 0);
+    var score = timer;
+    clearInterval(interval);
+    document.getElementById("answer-check").textContent = "Your final score is: " + score;
+ }
