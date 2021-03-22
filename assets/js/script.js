@@ -70,7 +70,7 @@ function loadQuestion () {
     if (questionIndex === quizQuestions.length) {
         return finalScore ();
     }
-
+    var currentQuestion = quizQuestions[questionIndex];
     document.getElementById("question").textContent = currentQuestion.question;
     document.getElementById("choice-1").textContent = currentQuestion.choices[0];
     document.getElementById("choice-2").textContent = currentQuestion.choices[1];
