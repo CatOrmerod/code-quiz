@@ -43,6 +43,26 @@ var losses = 0;
 var wins = 0;
 
 document.getElementById("start").addEventListener("click", startGame);
+document.getElementById("highscores-button").addEventListener("click", function(e){
+    var highScores = JSON.parse(localStorage.getItem("highScores") || "[]");
+    var content = document.getElementById("highscores-content")
+    var table = document.createElement("table")
+    content.appendChild(table);
+    highScores.map ((e)=> {
+        var tr = document.createElement("tr");
+        var td = document.createElement("td");
+        tr.appendChild(td);
+        td.innerHTML = e.name;
+        var td = document.createElement("td");
+        td.innerHTML = e.score;
+        tr.appendChild(td);
+        table.appendChild(tr);
+    })
+    document.getElementById("highscores-list").style.display = "block";
+})
+document.getElementById("highscores-close").addEventListener("click", function(e){
+    document.getElementById("highscores-list").style.display = "none";
+})
 
 function startGame () {
     startTimer();
@@ -68,7 +88,8 @@ function startTimer () {
 
 function loadQuestion () {
     if (questionIndex === quizQuestions.length) {
-        return finalScore ();
+        endquiz();
+        return;
     }
     var currentQuestion = quizQuestions[questionIndex];
     document.getElementById("question").textContent = currentQuestion.question;
@@ -78,6 +99,16 @@ function loadQuestion () {
     document.getElementById("choice-4").textContent = currentQuestion.choices[3];
     
     console.log(currentQuestion.answer);
+}
+
+function endquiz() {
+    document.getElementById("highscores").style.display="block"
+    document.getElementById("time-remaining").innerHTML = timer;
+    document.getElementById("final-score").innerHTML = timer;
+    document.getElementById("save-score").addEventListener("click", (e)=> {
+        saveScore();
+    })
+    clearInterval (interval);
 }
 
 document.getElementById("choices").addEventListener("click", answerCheck)
@@ -111,7 +142,7 @@ function finalScore() {
 }
  
 function saveScore() {
-    userNameInput = document.getElementById("username").textContent;
+    userNameInput = document.getElementById("username").value;
     var newScore = {
         name: userNameInput,
         score: timer
