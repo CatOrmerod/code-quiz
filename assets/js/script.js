@@ -43,6 +43,7 @@ var losses = 0;
 var wins = 0;
 
 document.getElementById("start").addEventListener("click", startGame);
+
 document.getElementById("highscores-button").addEventListener("click", function(e){
     var highScores = JSON.parse(localStorage.getItem("highScores") || "[]");
     var content = document.getElementById("highscores-content")
@@ -65,6 +66,7 @@ document.getElementById("highscores-close").addEventListener("click", function(e
 })
 
 function startGame () {
+    updateDisplay();
     startTimer();
     loadQuestion ();
 }
@@ -148,4 +150,10 @@ function saveScore() {
     highScores.push(newScore);
     localStorage.setItem("highScores", JSON.stringify(highScores));
     console.log(highScores)
+}
+
+function updateDisplay () {
+    document.getElementById("hero").style.display = "none";
+    document.getElementById("start").style.display = "none";
+    document.getElementById("quiz-questions").style.display = "block";
 }
