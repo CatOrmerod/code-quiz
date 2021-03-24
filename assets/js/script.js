@@ -76,11 +76,8 @@ function startTimer () {
         document.getElementById("time-remaining").innerHTML = timer
         if (timer === 0) {
             alert("You have lost this round")
-            losses++
             clearInterval (interval);
             interval = undefined
-            document.getElementById("losses").innerHTML = losses
-            document.getElementById("time-deducted").innerHTML = losses*10
         }
         timer--
     }, 1000)
