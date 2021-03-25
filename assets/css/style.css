@@ -101,6 +101,7 @@ button:hover {
     display: none;
     color: var(--green);
 }
+<<<<<<< HEAD
 
 @media screen and (min-width: 768px) {
     #container {
@@ -118,3 +119,5 @@ button:hover {
       flex: 0 0 33.333%;
     }
 }
+=======
+>>>>>>> 44a38b5374ac73e63389729e00a533c1eab078cf
