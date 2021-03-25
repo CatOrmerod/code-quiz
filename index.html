@@ -13,47 +13,48 @@
 <body>
     <header>
         <h1>Code Quiz</h1>
-        <button id = "highscores-button">VIEW HIGHSCORES</button>
-
     </header>
 
     <div id= "hero">
         <button id = "start">START</button>
     </div>
 
-    <div id = "quiz-questions">
-        <h2>Answer each question correctly or time will be deducted</h2>
-        <div id = "question"></div>
-        <div id = "choices">
-            <button><span id = "choice-1">A</span></button>
-            <button><span id = "choice-2">B</span></button>
-            <button><span id = "choice-3">C</span></button>
-            <button><span id = "choice-4">D</span></button>
-        </div>
-        <div id = "correct-answer">
-            <p><span id = "answer-check"></span></p>
-        </div>
-    </div>  
+    <div id = "container">
+        <div id = "quiz-questions">
+            <h2>Answer each question correctly or time will be deducted</h2>
+            <div id = "question"></div>
+            <div id = "choices">
+                <button><span id = "choice-1">A</span></button>
+                <button><span id = "choice-2">B</span></button>
+                <button><span id = "choice-3">C</span></button>
+                <button><span id = "choice-4">D</span></button>
+            </div>
+            <div id = "correct-answer">
+                <p><span id = "answer-check"></span></p>
+            </div>
+        </div>  
 
-    <aside id = "scoreboard">
-        <div id = "timer">
-            <h3>Time Remaining:
-                <span id = "time-remaining">60</span>
-            </h3>
+        <div id = "scoreboard">
+            <div id = "timer">
+                <h3>Time Remaining:
+                    <span id = "time-remaining">60</span>
+                </h3>
+            </div>
         </div>
-    </aside>
 
-    <div id = "highscores">
-        <textarea id="username" placeholder="Your Initials here" ></textarea>
-        <p>Your Final Score: 
-            <span id = "final-score">0</span>
-        </p>
-        <button id = "save-score">SAVE SCORE</button>
-    </div>
+        <div id = "highscores">
+            <textarea id="username" placeholder="Your Initials here" ></textarea>
+            <p>Your Final Score: 
+                <span id = "final-score">0</span>
+            </p>
+            <button id = "save-score">SAVE SCORE</button>
+            <button id = "highscores-button">VIEW HIGHSCORES</button>
+        </div>
         
-    <div id = "highscores-list">
-        <div id = "highscores-content"></div>
-        <button id = "highscores-close">CLOSE HIGHSCORES</button>
+        <div id = "highscores-list">
+            <div id = "highscores-content"></div>
+            <button id = "highscores-close">CLOSE HIGHSCORES</button>
+        </div>
     </div>
     
     <script src="assets/js/script.js"></script>

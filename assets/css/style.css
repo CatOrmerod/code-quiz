@@ -14,8 +14,22 @@ body {
     background-color: var(--black);
     color: var(--gin);
     font-family: 'Fredoka One', cursive;
+    font-size: 1.75rem;
+    line-height: 1.5;
 }
 
+h1 {
+    font-size: 2rem;
+}
+  
+h2 {
+    font-size: 1.5rem;
+}
+  
+h3 {
+    font-size: 1.25rem;
+}
+  
 button {
     display: block;
     background-color: var(--grey);
@@ -25,10 +39,19 @@ button {
     padding: 1rem;
     margin: 25px;
     width: 80%;
+    font-size: 1rem;
 }
 
 button:hover {
     box-shadow: inset 0px 0px 8px var(--pink), 0 0 15px var(--pink);
+}
+
+#container {
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
 }
 
 #hero {
@@ -44,7 +67,7 @@ button:hover {
 
 #start {
     position: absolute;
-    top: 75%;
+    top: 80%;
     left: 33%;
     width: 30%;
     font-size:large;
@@ -52,9 +75,6 @@ button:hover {
 
 #quiz-questions {
     display: none;
-    float: left;
-    flex-direction: column;
-    justify-content: flex-start;
     min-height: 100%;
     padding: 2rem;
     color: var(--pink);
@@ -64,8 +84,6 @@ button:hover {
 
 #scoreboard {
     display: none;
-    float: right;
-    flex-direction: column;
     min-height: 100%;
     padding: 2rem;
     color: var(--pink);
@@ -81,9 +99,22 @@ button:hover {
 
 #highscores-list {
     display: none;
-    color: var(--gin);
+    color: var(--green);
 }
 
-#highscores-content {
-    color: var(--gin);
+@media screen and (min-width: 768px) {
+    #container {
+      flex: 0 0 50%;
+      flex-direction: row;
+    }
+  
+    #container:last-child {
+      flex-grow: 1;
+    }
+}
+  
+@media screen and (min-width: 992px) {
+    #container {
+      flex: 0 0 33.333%;
+    }
 }
