@@ -81,9 +81,5 @@ button:hover {
 
 #highscores-list {
     display: none;
-    color: var(--gin);
-}
-
-#highscores-content {
     color: var(--green);
 }
