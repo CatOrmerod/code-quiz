@@ -42,6 +42,21 @@ var interval
 // Event listener to start the game //
 document.getElementById("start").addEventListener("click", startGame);
 
+//Function to create a list to display the highscores within the highscores content area
+document.getElementById("highscores-button").addEventListener("click", function(e){
+    var highScores = JSON.parse(localStorage.getItem("highScores") || "[]");
+        for (var i = 0; i < highScores.length; i++) {
+            var createLi = document.createElement("li");
+            createLi.textContent = highScores[i].name + " " + highScores[i].score;
+            document.getElementById("highscores-content").appendChild(createLi);
+        }
+    })
+    document.getElementById("highscores-list").style.display = "block";
+})
+document.getElementById("highscores-close").addEventListener("click", function(e){
+    document.getElementById("highscores-list").style.display = "none";
+})
+
 // Function to call the initial functions to begin the game //
 function startGame () {
     updateDisplay();
@@ -127,22 +142,6 @@ function saveScore() {
     localStorage.setItem("highScores", JSON.stringify(highScores));
     console.log(highScores)
 }
-
-//Function to create a list to display the highscores within the highscores content area
-document.getElementById("highscores-button").addEventListener("click", function(e){
-    var highScores = JSON.parse(localStorage.getItem("highScores") || "[]");
-        for (var i = 0; i < highScores.length; i++) {
-            var createLi = document.createElement("li");
-            createLi.textContent = highScores[i].name + " " + highScores[i].score;
-            document.getElementById("highscores-content").appendChild(createLi);
-        }
-    })
-    document.getElementById("highscores-list").style.display = "block";
-
-
-document.getElementById("highscores-close").addEventListener("click", function(e){
-    document.getElementById("highscores-list").style.display = "none";
-})
 
 // Function to update the display once the start button is clicked, to remove the image & button, 
 // and replace with timer, and Questions //
