@@ -49,8 +49,7 @@ document.getElementById("highscores-button").addEventListener("click", function(
             var createLi = document.createElement("li");
             createLi.textContent = highScores[i].name + " " + highScores[i].score;
             document.getElementById("highscores-content").appendChild(createLi);
-        }
-    })
+    }
     document.getElementById("highscores-list").style.display = "block";
 })
 document.getElementById("highscores-close").addEventListener("click", function(e){
