@@ -29,11 +29,9 @@ so I removed it and popped the details in a list instead
 
 The following image shows the web application's appearance and functionality:
 
-![Code Quiz Start screen.](./assets/screen-1.png)
-
-![Code Quiz Question screen.](./assets/screen-2.png)
-
-![Code Quiz You Lost screen.](./assets/screen-3.png)
+![screen-1](https://user-images.githubusercontent.com/78625200/112446111-f6848e00-8da3-11eb-932b-fb91d2bb4ed9.png)
+![screen-2](https://user-images.githubusercontent.com/78625200/112446311-2c297700-8da4-11eb-9d31-c72ba6528b5a.png)
+![screen-3](https://user-images.githubusercontent.com/78625200/112446322-30559480-8da4-11eb-8b05-9b8527780f0b.png)
 
 ## URL
 The webpage can be viewed at the following URL <https://catormerod.github.io/code-quiz/>
