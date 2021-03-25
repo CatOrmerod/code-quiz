@@ -133,7 +133,7 @@ document.getElementById("highscores-button").addEventListener("click", function(
     var highScores = JSON.parse(localStorage.getItem("highScores") || "[]");
         for (var i = 0; i < highScores.length; i++) {
             var createLi = document.createElement("li");
-            createLi.textContent = highScores[i].name + " " + highscores[i].score;
+            createLi.textContent = highScores[i].name + " " + highScores[i].score;
             document.getElementById("highscores-content").appendChild(createLi);
         }
     })
