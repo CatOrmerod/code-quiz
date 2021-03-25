@@ -1,4 +1,4 @@
-// questions variable
+// questions object //
 var quizQuestions = [
     { 
         question: "Inside which HTML element do we put the JavaScript?",
@@ -31,46 +31,25 @@ var quizQuestions = [
         answer: "<ol>"
     }]
 
-// other variables
+// global variables //
 
 var questionIndex = 0;
 var currentQuestion = quizQuestions[questionIndex];
 
 var timer = 60;
-var deducter = 0;
 var interval
-var losses = 0;
-var wins = 0;
 
+// Event listener to start the game //
 document.getElementById("start").addEventListener("click", startGame);
 
-document.getElementById("highscores-button").addEventListener("click", function(e){
-    var highScores = JSON.parse(localStorage.getItem("highScores") || "[]");
-    var content = document.getElementById("highscores-content")
-    var table = document.createElement("table")
-    content.appendChild(table);
-    highScores.map ((e)=> {
-        var tr = document.createElement("tr");
-        var td = document.createElement("td");
-        tr.appendChild(td);
-        td.innerHTML = e.name;
-        var td = document.createElement("td");
-        td.innerHTML = e.score;
-        tr.appendChild(td);
-        table.appendChild(tr);
-    })
-    document.getElementById("highscores-list").style.display = "block";
-})
-document.getElementById("highscores-close").addEventListener("click", function(e){
-    document.getElementById("highscores-list").style.display = "none";
-})
-
+// Function to call the initial functions to begin the game //
 function startGame () {
     updateDisplay();
     startTimer();
     loadQuestion ();
 }
 
+// Start timer function which begins the countdown at 60s, and alerts the user when the game is over //
 function startTimer () {
     clearInterval (interval);
     timer = 60;
@@ -85,6 +64,7 @@ function startTimer () {
     }, 1000)
 }
 
+// Function to add both the question & choices to the screen //
 function loadQuestion () {
     if (questionIndex === quizQuestions.length) {
         endquiz();
@@ -100,6 +80,7 @@ function loadQuestion () {
     console.log(currentQuestion.answer);
 }
 
+// Function to tell the quiz to save the score once the game is over //
 function endquiz() {
     document.getElementById("highscores").style.display="block"
     document.getElementById("time-remaining").innerHTML = timer;
@@ -107,11 +88,14 @@ function endquiz() {
     document.getElementById("save-score").addEventListener("click", (e)=> {
         saveScore();
     })
+    document.getElementById("answer-check").textContent = "Your final score is: " + timer;
     clearInterval (interval);
 }
-
+// Event listener to check which choice is selected by the user //
 document.getElementById("choices").addEventListener("click", answerCheck)
 
+// Function to check the user answer choice against the correct answer, 
+// once checked provides a correct, or incorrect (and deducts time), the loads next Q //
 function answerCheck(event) {
     event.preventDefault();
     var answerCorrect = quizQuestions[questionIndex].answer;
@@ -121,7 +105,6 @@ function answerCheck(event) {
     if (answerUser === answerCorrect) {
         document.getElementById("answer-check").textContent = "Correct!  Well Done.";
         questionIndex++;
-        wins++
         loadQuestion(questionIndex);
     } else if (answerUser !== answerCorrect) {
         document.getElementById("answer-check").textContent = "Incorrect, the correct answer is " + answerCorrect;
@@ -132,14 +115,7 @@ function answerCheck(event) {
     
 }
 
-function finalScore() {
-    if(timer > 0);
-    var score = timer;
-    clearInterval(interval);
-    document.getElementById("answer-check").textContent = "Your final score is: " + score;
-    saveScore();
-}
- 
+// Function to save the score to the local storage // 
 function saveScore() {
     userNameInput = document.getElementById("username").value;
     var newScore = {
@@ -152,8 +128,27 @@ function saveScore() {
     console.log(highScores)
 }
 
+//Function to create a list to display the highscores within the highscores content area
+document.getElementById("highscores-button").addEventListener("click", function(e){
+    var highScores = JSON.parse(localStorage.getItem("highScores") || "[]");
+        for (var i = 0; i < highScores.length; i++) {
+            var createLi = document.createElement("li");
+            createLi.textContent = highScores[i].name + " " + highscores[i].score;
+            document.getElementById("highscores-content").appendChild(createLi);
+        }
+    })
+    document.getElementById("highscores-list").style.display = "block";
+
+
+document.getElementById("highscores-close").addEventListener("click", function(e){
+    document.getElementById("highscores-list").style.display = "none";
+})
+
+// Function to update the display once the start button is clicked, to remove the image & button, 
+// and replace with timer, and Questions //
 function updateDisplay () {
     document.getElementById("hero").style.display = "none";
     document.getElementById("start").style.display = "none";
     document.getElementById("quiz-questions").style.display = "block";
+    document.getElementById("scoreboard").style.display = "block";
 }

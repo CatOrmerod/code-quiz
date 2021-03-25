@@ -7,8 +7,7 @@
 }
 
 header {
-    color: var(--white);
-    display: block;
+    color: var(--green);
 }
 
 body {
@@ -18,11 +17,14 @@ body {
 }
 
 button {
+    display: block;
     background-color: var(--grey);
     color: var(--pink);
     border: 2px solid var(--white);
     border-radius: 8px;
-    width: 20%;
+    padding: 1rem;
+    margin: 25px;
+    width: 80%;
 }
 
 button:hover {
@@ -31,13 +33,21 @@ button:hover {
 
 #hero {
     display:flex;
-    float:inline-start;
-    background-image: url("../images/background-start-sml.jpg");
+    background-image: url("../images/background-start.jpg.jpg");
     background-repeat: no-repeat;
     background-position: center;
-    width: 100%;
-    margin-bottom: 25px;
+    background-size: cover;
+    height: 500px;
+    margin: 25px;
     padding: 2rem; 
+}
+
+#start {
+    position: absolute;
+    top: 75%;
+    left: 33%;
+    width: 30%;
+    font-size:large;
 }
 
 #quiz-questions {
@@ -53,10 +63,9 @@ button:hover {
 }
 
 #scoreboard {
-    display: flex;
+    display: none;
     float: right;
     flex-direction: column;
-    justify-content: flex-end;
     min-height: 100%;
     padding: 2rem;
     color: var(--pink);
@@ -66,8 +75,15 @@ button:hover {
 
 #highscores {
     display: none;
+    color: var(--gin);
+    width: 20%;
 }
 
 #highscores-list {
     display: none;
+    color: var(--gin);
+}
+
+#highscores-content {
+    color: var(--gin);
 }
